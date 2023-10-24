@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-    background: ${({theme}) => theme.COLORS.PINK};
+    background: ${({theme, $isDelete}) => $isDelete ? theme.COLORS.BACKGROUND_900 :theme.COLORS.PINK};
 
     border-radius: 0.8rem;
     padding: 1.3rem 3.2rem;
@@ -12,7 +12,7 @@ export const Container = styled.button`
     align-items: center;
     justify-content: center;
 
-    color: ${({theme}) => theme.COLORS.BACKGROUND_900};
+    color: ${({theme, $isDelete}) => $isDelete ? theme.COLORS.PINK : theme.COLORS.BACKGROUND_900};
     font-size: 1.6rem;
 
 `;
