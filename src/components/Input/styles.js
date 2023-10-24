@@ -23,7 +23,7 @@ export const Container = styled.div`
         padding: 1.9rem 0;
         border-radius: 1rem;
 
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         width: 100%;
         color: ${({theme}) => theme.COLORS.TEXT_GRAY_100};
 
