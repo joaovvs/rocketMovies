@@ -4,15 +4,15 @@ export const Container = styled.div`
     display: grid;
     width: 100%;
 
-    grid-template-rows: auto 100%;
+    grid-template-rows: auto auto;
     grid-template-areas: 
     "header"
     "content";
     
-    main {
+    > main {
         grid-area: content;
 
-        overflow-y: scroll;
+        overflow-y: auto;
 
         align-items: start;
         
@@ -54,6 +54,7 @@ export const Section = styled.section`
     flex-direction: column;
     width: 100%;
 
+
     gap: 2.4rem;
     h2{
         font-size: 2rem;
@@ -77,8 +78,6 @@ export const Section = styled.section`
 
 export const Footer = styled.footer`
     width: 100%;
-
-    
     
     display: flex;
     flex-direction: row;

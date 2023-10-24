@@ -4,6 +4,8 @@ export const Container = styled.span`
     display: flex;
     width: fit-content;
 
+    
+
     align-items: center;
     padding: 1.6rem;
     border-radius: 1rem;

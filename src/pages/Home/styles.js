@@ -6,11 +6,11 @@ export const Container = styled.div`
     grid-template-areas: 
     "header"
     "content";
-    grid-template-rows: auto 100%;
+    grid-template-rows: auto auto;
     width: 100%;
     
 
-    main{
+    >main{
 
         grid-area: content;
         overflow-y: auto;

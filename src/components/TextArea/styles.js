@@ -7,6 +7,8 @@ export const Container = styled.textarea`
     border-radius:1rem;
     padding: 1.9rem 1.6rem;
 
+    border: none;
+
     background: ${({theme}) => theme.COLORS.BACKGROUND_700};
     
     color: ${({theme}) => theme.COLORS.TEXT_GRAY_100};
