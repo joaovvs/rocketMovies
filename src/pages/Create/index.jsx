@@ -15,43 +15,41 @@ export function Create(){
         <Container>
             <Header/>
             <main>
-                              
-                <Form>
-                    <header>
-                        <ButtonText title="Voltar" icon={FiArrowLeft}/>
-                        <h1>Novo Filme</h1>
-                    </header>
+                <ButtonText title="Voltar" icon={FiArrowLeft}/>
+                <Section>            
+                        <Form>
+                            <header>  
+                                <h1>Novo Filme</h1>
+                            </header>
 
-                    <div className="inputs">
-                        <Input placeholder="Título"/>
-                        <Input placeholder="Sua nota (de 0 a 5)"/>
-                    </div>
-                    <TextArea placeholder="Observações"/>
+                            <div className="inputs">
+                                <Input placeholder="Título"/>
+                                <Input placeholder="Sua nota (de 0 a 5)"/>
+                            </div>
+                            <TextArea placeholder="Observações"/>
 
-                
+                        
+                            <h2>Marcadores</h2>
 
-                <Section>
-                    <h2>Marcadores</h2>
+                            <div className="marker-edition">
+                                <Marker title="Ação" />
+                                <Marker title="Ficção Científica" />
+                                <Marker title="Drama" />
+                                <Marker title="Terror" />
+                                <Marker isNew/>
 
-                    <div className="marker-edition">
-                        <Marker title="Ação" />
-                        <Marker title="Ficção Científica" />
-                        <Marker title="Drama" />
-                        <Marker title="Terror" />
-                        <Marker isNew/>
+                            </div>
 
-                    </div>
+                        
 
-                </Section>
-
-                    <Footer>
-                    <Button title="Excluir Filme" isDelete/>
-                    <Button title="Salvar alterações"/>
+                            <Footer>
+                            <Button title="Excluir Filme" isDelete/>
+                            <Button title="Salvar alterações"/>
 
 
-                    </Footer>
-                </Form>
-
+                            </Footer>
+                        </Form>
+                    </Section>
             </main>
         </Container>
     )

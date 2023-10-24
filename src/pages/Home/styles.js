@@ -6,22 +6,21 @@ export const Container = styled.div`
     grid-template-areas: 
     "header"
     "content";
-    grid-template-rows: auto auto;
+    grid-template-rows: 11.6rem auto;
     width: 100%;
+    height: 100vh;
     
 
     >main{
-
         grid-area: content;
         overflow-y: auto;
-        padding: 5rem 12.3rem;
-        
+        padding: 0 10.6rem 0 12.3rem ;
 
         header{
             display: flex;
             justify-content: space-between;
 
-            margin-bottom: 5rem;
+            margin: 5rem 0;
 
             h1{
                 color: ${({theme})=> theme.COLORS.WHITE};
@@ -29,13 +28,38 @@ export const Container = styled.div`
                 font-weight: normal;
             }
         }
-
-        .movie-card-list{
-            display: flex;
-            flex-direction: column;
-
-            gap: 2.4rem;
-        }
     }
 
+`;
+
+export const CardList = styled.section`
+
+    flex-direction: column;
+    display: flex;
+    height: 80%;
+    overflow-y: auto;
+
+
+    gap: 2.4rem;
+    padding-bottom: 5rem;
+    padding-right: 1.6rem;
+
+    &::-webkit-scrollbar{
+        position: fixed;
+        right: .8rem;
+        top: 6.4rem;
+        background: transparent;
+        width: .6rem;
+
+
+        
+    }
+    &::-webkit-scrollbar-thumb{ 
+        background: ${({theme}) => theme.COLORS.PINK};
+        border-radius: 0.8rem;
+    }
+
+    &::-webkit-scrollbar-track{
+        background: transparent;
+    }
 `;

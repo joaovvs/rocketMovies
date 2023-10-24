@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: grid;
     width: 100%;
+    height: 100vh;
 
     grid-template-rows: auto auto;
     grid-template-areas: 
@@ -21,7 +22,7 @@ export const Container = styled.div`
         gap: 4rem;
         
 
-        padding: 4rem 12.4rem 8.5rem;
+        padding: 4rem 10.6rem 8.5rem 12.3rem;
 
     }
 `;
@@ -31,6 +32,7 @@ export const Form = styled.form`
 
     display: flex;
     flex-direction: column;
+
 
     gap: 4rem;
 
@@ -64,7 +66,10 @@ export const Section = styled.section`
     display: flex;
     flex-direction: column;
     width: 100%;
-
+    height: 100%;
+    overflow-y: auto;
+    
+    padding-right: 2.4rem;
 
     gap: 2.4rem;
     h2{
@@ -86,6 +91,20 @@ export const Section = styled.section`
         border-radius: 0.8rem;
 
         padding: 1.6rem;
+    }
+
+    &::-webkit-scrollbar{
+            width: .8rem;
+            background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb{ 
+        background: ${({theme}) => theme.COLORS.PINK};
+        border-radius: 0.8rem;
+    }
+
+    &::-webkit-scrollbar-track{
+        background: transparent;
     }
 `;
 

@@ -1,6 +1,6 @@
 import { Container } from "./styles";
 
-import { FiStar } from "react-icons/fi";
+import { Rating } from "../Rating";
 import { Tag } from "../Tag";
 
 
@@ -9,11 +9,7 @@ export function MovieCard({title, rating, description, tags, ...rest}){
         <Container {...rest}>
             <h2>{title}</h2>
             <div className="stars">
-                <FiStar/>
-                <FiStar/>
-                <FiStar/>
-                <FiStar/>
-                <FiStar/>
+                <Rating/>
             </div>
             <p>{description}
             </p>

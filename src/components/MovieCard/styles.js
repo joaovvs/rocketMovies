@@ -19,25 +19,6 @@ export const Container = styled.button`
         margin-bottom: 0.8rem;
     }
 
-    .stars{
-        display: flex;
-        gap: .6rem;
-
-        margin-bottom: 1.5rem;
-        
-        color: ${({theme}) => theme.COLORS.PINK};
-
-        font-size: 1.2rem;
-        
-       > svg{
-            fill: ${({theme}) => theme.COLORS.PINK};
-            
-        }
-
-        >svg:nth-child(5){
-            fill: none;
-        }
-    }
 
     p{
         font-family: 'Roboto', sans-serif;
