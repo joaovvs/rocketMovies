@@ -5,6 +5,7 @@ export default {
     BACKGROUND_700: "#262529",
     BACKGROUND_600: "#282124",
     BACKGROUND_500: "#312E38",
+    BACKGROUND_400: "#3E3B47",
     
     BACKGROUND_PINK: "rgba(255,133,155,5%)",
 

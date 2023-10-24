@@ -1,12 +1,16 @@
 import { Container, Search, Profile } from './styles'
 
+import { FiPlus, FiSearch } from 'react-icons/fi';
+
+import { Input } from '../Input'
+
 export function Header(){
     return(
         <Container>
             <h1>Rocketmovies</h1>
 
             <Search>
-                <input type="text" />
+                <Input type="text" placeholder="Pesquise pelo título" icon={FiSearch}/>
             </Search>
             
             <Profile>

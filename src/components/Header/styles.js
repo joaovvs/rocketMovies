@@ -13,6 +13,8 @@ export const Container = styled.div`
 
     gap: 6.4rem;
 
+    border-bottom: 1px solid ${({theme}) => theme.COLORS.BACKGROUND_400};
+
     h1 {
         font-size: 2.4rem;
         font-weight: bold;
@@ -25,6 +27,7 @@ export const Container = styled.div`
 `
 
 export const Search = styled.div`
+    width: 100%;
 `;
 
 export const Profile = styled.div`
