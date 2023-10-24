@@ -23,15 +23,6 @@ export const Container = styled.div`
 
         padding: 4rem 12.4rem 8.5rem;
 
-
-        h1 {
-            font-size: 3.6rem;
-            font-weight: 500;
-
-            margin-top: 2.4rem;
-
-            color: ${({theme}) => theme.COLORS.TEXT_GRAY_100}
-        }
     }
 `;
 
@@ -43,10 +34,30 @@ export const Form = styled.form`
 
     gap: 4rem;
 
-    > div {
+
+ 
+
+    header {
+        display: flex;
+        flex-direction: column;
+
+        align-items: start;
+
+        h1 {
+            font-size: 3.6rem;
+            font-weight: 500;
+
+            margin-top: 2.4rem;
+
+            color: ${({theme}) => theme.COLORS.TEXT_GRAY_100}
+        }
+    }
+
+    > div{
         display: flex;
         gap: 4rem;
     }
+
 `;
 
 export const Section = styled.section`
@@ -66,6 +77,8 @@ export const Section = styled.section`
         width: 100%;
         
         display: flex;
+
+        flex-wrap: wrap;
         gap: 2.4rem;
 
         background: ${({theme}) => theme.COLORS.BACKGROUND_900};

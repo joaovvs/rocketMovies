@@ -15,19 +15,20 @@ export function Create(){
         <Container>
             <Header/>
             <main>
-                <div className="top">
-                    <ButtonText title="Voltar" icon={FiArrowLeft}/>
-                    <h1>Novo Filme</h1>
-                </div>
-                
+                              
                 <Form>
+                    <header>
+                        <ButtonText title="Voltar" icon={FiArrowLeft}/>
+                        <h1>Novo Filme</h1>
+                    </header>
+
                     <div className="inputs">
                         <Input placeholder="Título"/>
                         <Input placeholder="Sua nota (de 0 a 5)"/>
                     </div>
                     <TextArea placeholder="Observações"/>
 
-                </Form>
+                
 
                 <Section>
                     <h2>Marcadores</h2>
@@ -43,12 +44,13 @@ export function Create(){
 
                 </Section>
 
-                <Footer>
+                    <Footer>
                     <Button title="Excluir Filme" isDelete/>
                     <Button title="Salvar alterações"/>
 
 
-                </Footer>
+                    </Footer>
+                </Form>
 
             </main>
         </Container>
