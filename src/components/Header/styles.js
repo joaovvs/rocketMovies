@@ -35,6 +35,7 @@ export const Profile = styled.div`
     flex-direction: row;
     align-items: center;
 
+
     gap: .9rem;
 
 
@@ -43,6 +44,7 @@ export const Profile = styled.div`
         display: flex;
         flex-direction: column;
         text-align: right;
+        width: max-content;
 
         font-family: 'Roboto Slab', serif;
         font-size: 1.4rem;
