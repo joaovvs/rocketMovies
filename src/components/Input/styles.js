@@ -5,11 +5,12 @@ export const Container = styled.div`
     border-radius: 1rem;
     width: 100%;
 
-    padding: 1.9rem 2.4rem;
     
     display: flex;
     align-items: center;
     gap: 1.2rem;
+
+    padding: 0  2.4rem;
 
     svg{
         color: ${({theme}) => theme.COLORS.TEXT_GRAY_300};
@@ -18,6 +19,9 @@ export const Container = styled.div`
     input{
         background: none;
         border: none;
+
+        padding: 1.9rem 0;
+        border-radius: 1rem;
 
         font-size: 1.4rem;
         width: 100%;
