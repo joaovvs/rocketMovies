@@ -1,15 +1,21 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    
+    display: grid;
+
+    grid-template-areas: 
+    "header"
+    "content";
+    grid-template-rows: auto 100%;
     width: 100%;
     
 
     main{
 
-        padding: 5rem 12.3rem;
         grid-area: content;
         overflow-y: auto;
+        padding: 5rem 12.3rem;
+        
 
         header{
             display: flex;
@@ -22,6 +28,13 @@ export const Container = styled.div`
                 font-size: 3.2rem;
                 font-weight: normal;
             }
+        }
+
+        .movie-card-list{
+            display: flex;
+            flex-direction: column;
+
+            gap: 2.4rem;
         }
     }
 

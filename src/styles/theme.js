@@ -15,6 +15,7 @@ export default {
 
 
     TEXT_GRAY_300: "#948F99",
+    TEXT_GRAY_200: "#E5E5E5",
     TEXT_GRAY_100: "#F4EDE8",
 
    
