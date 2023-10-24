@@ -11,6 +11,10 @@ export default createGlobalStyle`
         font-size: 62.5%;
         
     }
+
+    body, input, button{
+        font-family: 'Roboto Slab', serif;
+    } 
     
     body{
         background: ${({theme}) => theme.COLORS.BACKGROUND_800};
