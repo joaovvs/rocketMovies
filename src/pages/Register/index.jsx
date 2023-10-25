@@ -33,7 +33,7 @@ export function Register(){
 
                <Button title= "Cadastrar"/>
 
-               <ButtonText title="Voltar para o login" icon={FiArrowLeft}/>
+               <ButtonText to="/" title="Voltar para o login" icon={FiArrowLeft}/>
                
             </Form>
 
