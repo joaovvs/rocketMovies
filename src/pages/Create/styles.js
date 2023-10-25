@@ -118,7 +118,7 @@ export const Footer = styled.footer`
 
     gap: 4rem;
 
-    a, button{
+    a{
         width: 100%;
     }
 

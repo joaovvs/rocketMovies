@@ -6,6 +6,7 @@ export const Container = styled.button`
 
     border-radius: 0.8rem;
     padding: 1.3rem 3.2rem;
+    width: 100%;
 
     gap: .8rem;
 
