@@ -14,7 +14,7 @@ export function Preview (){
             <main>        
                 <Section>
                     <header>
-                        <ButtonText title="Voltar" icon={FiArrowLeft}/>
+                        <ButtonText to="/"title="Voltar" icon={FiArrowLeft}/>
                         <div className="title-and-rating">
                             <h1>Interestellar</h1>
                             <Rating/>

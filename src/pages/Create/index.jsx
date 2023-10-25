@@ -15,7 +15,7 @@ export function Create(){
         <Container>
             <Header/>
             <main>
-                <ButtonText title="Voltar" icon={FiArrowLeft}/>
+                <ButtonText to="/" title="Voltar" icon={FiArrowLeft}/>
                 <Section>            
                         <Form>
                             <header>  
@@ -43,10 +43,8 @@ export function Create(){
                         
 
                             <Footer>
-                            <Button title="Excluir Filme" isDelete/>
-                            <Button title="Salvar alterações"/>
-
-
+                                <Button title="Excluir Filme" isDelete/>
+                                <Button title="Salvar alterações"/>
                             </Footer>
                         </Form>
                     </Section>
