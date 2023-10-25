@@ -9,7 +9,9 @@ import { Link } from 'react-router-dom';
 export function Header(){
     return(
         <Container>
-            <h1>Rocketmovies</h1>
+            <Link to="/">
+                <h1>Rocketmovies</h1>
+            </Link>
 
             <Search>
                 <Input type="text" placeholder="Pesquise pelo título" icon={FiSearch}/>
