@@ -4,6 +4,8 @@ import { FiPlus, FiSearch } from 'react-icons/fi';
 
 import { Input } from '../Input'
 
+import { Link } from 'react-router-dom';
+
 export function Header(){
     return(
         <Container>
@@ -18,7 +20,9 @@ export function Header(){
                     <span>João Vinícius</span>
                     <a href="/">sair</a>
                 </div>
-                <img src="https://github.com/joaovvs.png" alt="Foto de perfil" />
+                <Link to="/profile">
+                    <img src="https://github.com/joaovvs.png" alt="Foto de perfil" />
+                </Link>
             </Profile>
         </Container>
     )

@@ -29,6 +29,9 @@ export const Form = styled.form`
     >div:nth-child(4), button{
         margin-top: 2.4rem;
    }
+   button,a{
+    width: 100%;
+   }
 
 `;
 

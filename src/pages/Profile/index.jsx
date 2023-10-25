@@ -9,7 +9,7 @@ export function Profile(){
     return (
         <Container>
             <header>
-                <ButtonText title="voltar" icon={FiArrowLeft}/>
+                <ButtonText to="/" title="voltar" icon={FiArrowLeft}/>
             </header>
 
             <Form>
