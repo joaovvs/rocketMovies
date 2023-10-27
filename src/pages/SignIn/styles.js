@@ -44,7 +44,7 @@ export const Form = styled.form`
         margin-top: 1.6rem;
     }
 
-    button + a{ 
+    button:last-child{ 
         margin-top: 4.2rem;
     }
     /*Input's div margin*/ 

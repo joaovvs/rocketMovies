@@ -2,13 +2,18 @@ import { Container, Form, Background } from "./styles";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonText";
+import { useNavigate } from "react-router-dom";
 
-import { Link } from "react-router-dom";
 
 
 import { FiMail, FiLock} from 'react-icons/fi'
 
 export function SignIn(){
+    const navigate = useNavigate();
+
+    function handleNewUser(){
+        navigate("/register")
+    }
     return(
         <Container>
             <Form>
@@ -30,7 +35,9 @@ export function SignIn(){
 
                <Button title= "Entrar"/>
 
-               <ButtonText to="/register "title="Criar conta"/>
+               <ButtonText 
+               title="Criar conta"
+               onClick={handleNewUser}/>
 
             </Form>
 

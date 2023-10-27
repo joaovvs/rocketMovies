@@ -8,8 +8,8 @@ export const Container = styled.div`
     align-items: stretch;
 `;
 
-export const Form = styled.form`
-
+export const Form = styled.div`
+    
     background: ${({theme}) => theme.COLORS.BACKGROUND_900};
     height: 100vh;
     margin: auto 0;
@@ -44,7 +44,7 @@ export const Form = styled.form`
         margin-top: 1.6rem;
     }
 
-    button + a{ 
+    button:last-child{ 
         margin-top: 4.2rem;
     }
     /*Input's div margin*/ 
