@@ -22,8 +22,7 @@ export function Create(){
     }
 
     function handleRemoveMarker(removed){
-        setMarkers( prev => markers.filter(marker => marker != removed));
-
+        setMarkers( prev => prev.filter(marker => marker != removed));
     }
 
     return(
