@@ -27,6 +27,9 @@ export const Container = styled.div`
                 font-size: 3.2rem;
                 font-weight: normal;
             }
+            button{
+                width: fit-content;
+            }
         }
     }
 

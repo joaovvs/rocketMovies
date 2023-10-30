@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.span`
+export const Container = styled.div`
     display: flex;
     width: fit-content;
 
@@ -13,7 +13,16 @@ export const Container = styled.span`
     background: ${({theme, $isNew }) => $isNew ? "transparent" : theme.COLORS.BACKGROUND_700};
     border: ${({theme, $isNew }) => $isNew ? `2px dashed ${theme.COLORS.TEXT_GRAY_300}` : "none"};
 
-    color: ${({theme, $isNew }) => $isNew ? theme.COLORS.TEXT_GRAY_300 : theme.COLORS.WHITE};
+    
+    input {
+        color: ${({theme}) => theme.COLORS.WHITE};
+        background: transparent;
+        border: none;
+
+        &::placeholder{
+            color: ${({theme}) => theme.COLORS.TEXT_GRAY_300};
+        }
+    }
 
     >button{
         display: flex;

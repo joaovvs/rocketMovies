@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Container, Form, Section, Footer } from "./styles";
 import { Header } from '../../components/Header';
 import { Input } from '../../components/Input';
@@ -11,6 +12,20 @@ import { Marker } from "../../components/Marker";
 
 
 export function Create(){
+    const [markers, setMarkers] = useState([]);
+    const [newMarker, setNewMarker] = useState("");
+
+    function handleAddMarker(){
+        setMarkers(prev => [...prev, newMarker]);
+        console.log(markers);
+        setNewMarker("");
+    }
+
+    function handleRemoveMarker(removed){
+        setMarkers( prev => markers.filter(marker => marker != removed));
+
+    }
+
     return(
         <Container>
             <Header/>
@@ -32,12 +47,21 @@ export function Create(){
                             <h2>Marcadores</h2>
 
                             <div className="marker-edition">
-                                <Marker title="Ação" />
-                                <Marker title="Ficção Científica" />
-                                <Marker title="Drama" />
-                                <Marker title="Terror" />
-                                <Marker isNew/>
+                                {
+                                markers.map((marker, index)=> (
+                                    <Marker 
+                                        key={String(index)} 
+                                        value={marker} 
+                                        onClick={() => handleRemoveMarker(marker)}
+                                    />
+                                ) )
+                                }
 
+                                <Marker isNew 
+                                placeholder="Novo Marcador"
+                                value={newMarker}
+                                onChange={(e) => setNewMarker(e.target.value)}
+                                onClick={handleAddMarker}/>
                             </div>
 
                         

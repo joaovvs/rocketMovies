@@ -1,12 +1,21 @@
 import { FiPlus, FiX } from "react-icons/fi";
 import { Container } from "./styles";
 
-export function Marker({title, isNew, ...rest}){
+export function Marker({value, isNew, onClick,...rest}){
     return(
-        <Container $isNew={isNew}
-        {...rest}>
-            {title ? title : "Novo marcador"}
-            <button> {isNew ?  <FiPlus/> : <FiX/>} </button>
+        <Container $isNew={isNew}>
+            <input 
+                type="text"
+                value={value}
+                readOnly={!isNew}
+                {...rest}/>
+            <button
+                type="button"
+                onClick={onClick}
+                className={isNew ? 'button-add' : 'button-delete'}
+            > 
+                {isNew ?  <FiPlus/> : <FiX/>} 
+            </button>
         </Container>
     )
 }
