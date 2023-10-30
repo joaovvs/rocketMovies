@@ -55,8 +55,12 @@ export const Profile = styled.div`
             color: ${({theme}) => theme.COLORS.TEXT_GRAY_100};
         }
 
-        a{
+        button{
+            width: fit-content;
             color: ${({theme}) => theme.COLORS.TEXT_GRAY_300};
+            background: none;
+            border: none;
+            align-self: self-end;
         }
     }
 
