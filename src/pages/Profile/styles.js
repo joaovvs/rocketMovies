@@ -20,14 +20,12 @@ export const Form = styled.div`
     max-width: 34rem;
 
     justify-content: center;
-    margin: 0 auto;
+    margin: -10rem auto 0;
 
-    >div{
-        margin-bottom: 0.8rem;
-    }
+    gap: 0.8rem;
 
     >div:nth-child(4), button{
-        margin-top: 2.4rem;
+        margin-top: 1.6rem;
    }
    button,a{
     width: 100%;
@@ -38,7 +36,8 @@ export const Form = styled.div`
 export const Avatar = styled.div`
     position: relative;
 
-    margin: -10rem auto 6.4rem;
+    margin: 0 auto 6.4rem; 
+
     
     >img {
         width: 18.6rem;

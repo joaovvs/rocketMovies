@@ -6,8 +6,8 @@ import { Register } from '../pages/Register'
 export function AuthRoutes(){
     return( 
        <Routes>
-         <Route path="/" element={<SignIn />} />
          <Route path="/register" element={<Register />} />
+         <Route path="/" element={<SignIn />} />
        </Routes>
     );
  }
