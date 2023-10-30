@@ -1,15 +1,18 @@
+import { useState } from 'react';
+
 import { Container, Search, Profile } from './styles';
 
 import { useAuth } from '../../hooks/auth';
-
 import { FiPlus, FiSearch } from 'react-icons/fi';
-
 import { Input } from '../Input'
 
 import { Link } from 'react-router-dom';
 
 export function Header(){
     const { signOut} = useAuth();
+    const [ name, setName] = useState();
+ 
+
     return(
         <Container>
             <Link to="/">
