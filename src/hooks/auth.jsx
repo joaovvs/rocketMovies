@@ -1,10 +1,13 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { api } from "../services/api"
 
+
+
 const AuthContext = createContext({});
 
 function AuthProvider({children}){
     const [data, setData] = useState({});
+
 
     async function signIn({email, password}){
 
@@ -34,6 +37,7 @@ function AuthProvider({children}){
 
         setData({});
     }
+
 
     async function updateProfile({ user }){
         try {

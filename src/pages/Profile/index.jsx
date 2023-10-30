@@ -5,6 +5,7 @@ import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 
 import { useAuth } from "../../hooks/auth";
+import { useNavigate } from "react-router-dom";
 
 import { FiArrowLeft, FiUser, FiMail, FiLock, FiCamera } from "react-icons/fi";
 import { Button } from "../../components/Button";
@@ -15,6 +16,8 @@ export function Profile(){
     const [ email, setEmail] = useState(user.email);
     const [ passwordOld, setPasswordOld] = useState();
     const [ passwordNew, setPasswordNew] = useState();
+
+    const navigate = useNavigate();
 
 
     async function handleUpdate(){
@@ -28,10 +31,18 @@ export function Profile(){
     }
 
 
+    function handleBack(){
+        navigate(-1);
+    }
+
     return (
         <Container>
             <header>
-                <ButtonText to="/" title="voltar" icon={FiArrowLeft}/>
+                <ButtonText 
+                title="voltar"
+                icon={FiArrowLeft}
+                onClick={handleBack}
+                />
             </header>
 
             <Form>
