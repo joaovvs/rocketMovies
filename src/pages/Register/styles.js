@@ -8,7 +8,7 @@ export const Container = styled.div`
     align-items: stretch;
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
     
     background: ${({theme}) => theme.COLORS.BACKGROUND_900};
     height: 100vh;

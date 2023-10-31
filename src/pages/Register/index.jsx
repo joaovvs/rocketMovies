@@ -77,11 +77,13 @@ export function Register(){
                 />
 
                <Button 
+                    type="button"
                     title= "Cadastrar"
                     onClick={handleRegister}
                     />
 
                <ButtonText 
+                    type="button"
                     title="Voltar para o login" 
                     icon={FiArrowLeft} 
                     onClick={handleBack}

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { Container, Form, Section, Footer } from "./styles";
 import { Header } from '../../components/Header';
@@ -15,49 +15,76 @@ import { api } from "../../services/api";
 
 
 export function Create(){
-    const [id, setId] = useState("")
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [rating, setRating] = useState("");
-    const [markers, setMarkers] = useState([]);
+    const params = useParams();
+
+    const [ note, setNote] = useState({
+        id: "",
+        title:"",
+        rating:"",
+        description:"",
+        tags: [] });
+
     const [newMarker, setNewMarker] = useState("");
 
+    
     const navigate = useNavigate();
+
+
 
     function handleBack(){
         navigate(-1);
     }
 
     function handleAddMarker(){
-        setMarkers(prev => [...prev, newMarker]);
+        const newNote = {...note};
+        newNote.tags = [...newNote.tags, newMarker];
+        setNote(newNote);
         setNewMarker("");
     }
 
     function handleRemoveMarker(removed){
-        setMarkers( prev => prev.filter(marker => marker != removed));
+        const newNote = {...note};
+        newNote.tags = (newNote.tags.filter(tag => tag!= removed));
+        console.log(newNote.tags);
+        setNote(newNote);
     }
 
-    async function handleSaveMovieNote(){
-        const note = {id, title,description,rating, tags: markers}
+    function handleSaveMovieNote(){
+        if (params.id){
+            console.log("Precisa atualizar a nota");
+            updateMovieNote();
+        }else{
+            console.log("Precisa criar uma nova nota");
+            createNewMovieNote();
+        }
     
+
+    }
+
+    async function updateMovieNote(){
         try {
-            /* id is not informed create a new note*/
-            if(!id){
-                const result = await api.post("/notes", note);
-                setId(result.data[0].id);
-                alert("Filme cadastrado com sucesso!");
-
-            } else{
-                await api.put("/notes", note);
-                alert("Filme atualizado com sucesso!");
-            }
-            
-
+            api.put(`/notes/`, note);
+            alert("Anotação atualizada com sucesso!");
         } catch (error) {
             if(error.response){
                 alert(error.response.data.message);
-            }else {
-                alert("Não foi possível cadastrar o filme");
+            }else{
+                alert( "Não foi possível atualizar a anotação do filme!");
+            }
+        }
+    }
+
+    async function createNewMovieNote(){
+        try {
+            const result = await api.post("/notes", note);
+
+            setNote({...note,"id": result.data.id});
+            alert("Nota criada com sucesso!");
+        } catch (error) {
+            if(error.response){
+                alert(error.response.data.message);
+            }else{
+                alert( "Não foi possível criar anotação para o filme!");
             }
         }
         
@@ -65,19 +92,62 @@ export function Create(){
 
     async function handleDeleteMovieNote(){
             try {
-                await  api.delete(`/notes/${id}`);
+                await  api.delete(`/notes/${params.id}`);
                 alert("Nota do filme removida com sucesso!");
-                setId("");
+
+                setNote({
+                    id: params.id,
+                    title:"",
+                    rating:"",
+                    description:"",
+                    tags: [] });
+                navigate("/new");
+
             } catch (error) {
                 if(error.response){
                     alert(error.response.data.message);
                 }else {
                     alert("Não foi possível deletar o filme");
+                    setId("");
                 }
             }
 
            
     }
+
+    async function fetchMovieNote(){
+            try{
+                const result= await api.get(`/notes/${params.id}`);
+                console.log(`resultado do get usando o params id: ${result.data}`);
+                setNote(result.data); 
+                console.log(note);
+            } catch (error) {
+                if(error.response){
+                    alert(error.response.data.message);
+                }else{
+                    alert( "Não foi possível encontrar a anotação para o filme!");
+                }
+            }
+    }
+
+    /*observes notes */
+    useEffect(()=>{
+        console.log("note_id value"+ note.id);
+        console.log("params.id value:"+params.id);
+        if(note.id && !params.id){
+            console.log("redirecionou");
+            navigate(`/new/${note.id}`);
+        }
+ 
+
+    },[note]);
+
+    useEffect(()=>{
+        if(params.id){
+            fetchMovieNote();
+        }
+    },[]);
+
 
     return(
         <Container>
@@ -96,20 +166,20 @@ export function Create(){
 
                             <div className="inputs">
                                 <Input 
-                                    value={title}
+                                    value={note.title}
                                     placeholder="Título"
-                                    onChange={ e => setTitle(e.target.value)}
+                                    onChange={ e => setNote({...note, "title": e.target.value})}
                                 />
                                 <Input 
-                                    value={rating}
+                                    value={note.rating}
                                     placeholder="Sua nota (de 0 a 5)"
-                                    onChange={ e => setRating(e.target.value)}
+                                    onChange={ e => setNote({...note, "rating": e.target.value})}
                                 />
                             </div>
                             <TextArea 
-                                value={description}
+                                value={note.description}
                                 placeholder="Observações"
-                                onChange={ e => setDescription(e.target.value)}
+                                onChange={ e => setNote({...note, "description": e.target.value})}
                             />
 
                         
@@ -117,13 +187,13 @@ export function Create(){
 
                             <div className="marker-edition">
                                 {
-                                markers.map((marker, index)=> (
-                                    <Marker 
-                                        key={String(index)} 
-                                        value={marker} 
-                                        onClick={() => handleRemoveMarker(marker)}
-                                    />
-                                ) )
+                                    note.tags && note.tags.map((tag, index)=> (
+                                        <Marker 
+                                            key={String(index)} 
+                                            value={tag} 
+                                            onClick={() => handleRemoveMarker(tag)}
+                                        />
+                                    ) )
                                 }
 
                                 <Marker isNew 
@@ -137,11 +207,13 @@ export function Create(){
 
                             <Footer>
                                 <Button 
+                                    type="button"
                                     title="Excluir Filme" 
                                     isDelete
                                     onClick={handleDeleteMovieNote}
                                 />
                                 <Button 
+                                    type="button"
                                     title="Salvar alterações"
                                     onClick={handleSaveMovieNote}
                                 />

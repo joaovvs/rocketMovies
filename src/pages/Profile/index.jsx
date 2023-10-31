@@ -58,9 +58,10 @@ export function Profile(){
         <Container>
             <header>
                 <ButtonText 
-                title="voltar"
-                icon={FiArrowLeft}
-                onClick={handleBack}
+                    type="button"
+                    title="voltar"
+                    icon={FiArrowLeft}
+                    onClick={handleBack}
                 />
             </header>
 
@@ -104,6 +105,7 @@ export function Profile(){
                 />
 
                 <Button 
+                    type="button"
                     title="Salvar"
                     onClick={handleUpdate}
                 />
