@@ -9,6 +9,7 @@ import { FiPlus, FiSearch } from 'react-icons/fi';
 import { Input } from '../Input'
 
 import { Link } from 'react-router-dom';
+import blankAvatar from '../../assets/blank_avatar.svg'
 
 export function Header(){
     const { signOut, user} = useAuth();

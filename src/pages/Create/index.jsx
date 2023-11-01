@@ -32,7 +32,7 @@ export function Create(){
 
 
     function handleBack(){
-        navigate("/");
+        navigate(-1);
     }
 
     function handleAddMarker(){
