@@ -10,12 +10,4 @@ export const Container = styled.div`
 
         font-size: 1.2rem;
         
-       > svg{
-            fill: ${({theme}) => theme.COLORS.PINK};
-            
-        }
-
-        >svg:nth-child(5){
-            fill: none;
-        }
 `;

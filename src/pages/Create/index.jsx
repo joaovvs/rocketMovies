@@ -32,7 +32,7 @@ export function Create(){
 
 
     function handleBack(){
-        navigate(-1);
+        navigate("/");
     }
 
     function handleAddMarker(){
@@ -96,11 +96,13 @@ export function Create(){
                 alert("Nota do filme removida com sucesso!");
 
                 setNote({
-                    id: params.id,
+                    id: "",
                     title:"",
                     rating:"",
                     description:"",
-                    tags: [] });
+                    tags: [] 
+                });
+
                 navigate("/new");
 
             } catch (error) {
