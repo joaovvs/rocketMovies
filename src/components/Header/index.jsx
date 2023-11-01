@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Container, Search, Profile } from './styles';
 
@@ -11,10 +11,32 @@ import { Input } from '../Input'
 import { Link } from 'react-router-dom';
 import blankAvatar from '../../assets/blank_avatar.svg'
 
-export function Header(){
+export function Header({ onSearchChange }){
     const { signOut, user} = useAuth();
+    const[search, setSearch] = useState("");
+    const [searchTimeout, setSearchTimeout] = useState(null);
+
+    
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : blankAvatar;
- 
+    
+      // handle changes on search
+    const handleSearchChange = (e) => {
+        const newSearch = e.target.value;
+        setSearch(newSearch);
+  
+         // Cancels any search
+        if (searchTimeout) {
+            clearTimeout(searchTimeout);
+        }
+    
+        // Define a new timer to init seach as delay
+        const timer = setTimeout(() => {
+            onSearchChange(newSearch); // Challs callback function at Home
+        }, 1000); // Await 1000 ms = 1s
+    
+        setSearchTimeout(timer);
+    };
+
 
     return(
         <Container>
@@ -23,7 +45,11 @@ export function Header(){
             </Link>
 
             <Search>
-                <Input id="search" type="text" placeholder="Pesquise pelo título" icon={FiSearch}/>
+                <Input id="search" 
+                type="search"
+                value={search}
+                placeholder="Pesquise pelo título" 
+                onChange={handleSearchChange}/>
             </Search>
             
             <Profile>

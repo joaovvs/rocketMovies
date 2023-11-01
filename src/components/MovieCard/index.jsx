@@ -8,9 +8,6 @@ import { useEffect } from "react";
 
 export function MovieCard({title,id, rating, description, tags,...rest}){
    
-    useEffect(()=>{
-        console.log("rating no move card:"+ rating);
-    },[])
    
     return (
         <Link to={`preview/${id}`}>

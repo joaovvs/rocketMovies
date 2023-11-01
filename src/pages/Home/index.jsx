@@ -5,7 +5,7 @@ import { Container, CardList } from "./styles";
 import { FiPlus } from "react-icons/fi";
 
 
-import { Header} from '../../components/Header'
+import { Header } from '../../components/Header'
 import { Button } from '../../components/Button'
 import { MovieCard } from '../../components/MovieCard'
 import { useEffect, useState } from "react";
@@ -18,6 +18,12 @@ export function Home(){
         rating:"",
         description:"",
         tags:[]}]);
+    
+    const[search, setSearch] = useState("");
+
+    const updateSearch = (newSearch) => {
+        setSearch(newSearch);
+    };
 
     function handleCreate(){
         navigate("/new")
@@ -25,18 +31,27 @@ export function Home(){
 
     useEffect(()=>{
         async function fetchMovieNotes(){
-            if(!movieNotes.id){
+            if(!search){
                 const result = await api.get("/notes/");
-                console.log(result.data);
+                setMovieNotes(result.data)
+            }else{
+                const result = await api.get(`/notes?title=${search}`);
                 setMovieNotes(result.data)
             }
         }
         fetchMovieNotes();
-    },[])
+    },[search]);
+
+    useEffect(()=>{
+        console.log("changed");
+    },[movieNotes]);
+
+
 
     return(
         <Container>
-            <Header />
+            <Header onSearchChange={updateSearch}/>
+            
             <main>
                 <header>
                     <h1>Meus filmes</h1>
