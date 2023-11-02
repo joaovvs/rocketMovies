@@ -80,6 +80,7 @@ export function Create(){
 
             setNote({...note,"id": result.data.id});
             alert("Nota criada com sucesso!");
+            navigate("/");
         } catch (error) {
             if(error.response){
                 alert(error.response.data.message);
@@ -91,7 +92,9 @@ export function Create(){
     }
 
     async function handleDeleteMovieNote(){
+        const confirm = window.confirm("Deseja realmente remover a nota?");
             try {
+
                 await  api.delete(`/notes/${params.id}`);
                 alert("Nota do filme removida com sucesso!");
 
@@ -103,7 +106,7 @@ export function Create(){
                     tags: [] 
                 });
 
-                navigate("/new");
+                navigate("/");
 
             } catch (error) {
                 if(error.response){
@@ -163,7 +166,7 @@ export function Create(){
                 <Section>            
                         <Form>
                             <header>  
-                                <h1>Novo Filme</h1>
+                                <h1>{params.id ? "Editar Filme": "Novo Filme"}</h1>
                             </header>
 
                             <div className="inputs">

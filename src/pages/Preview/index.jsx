@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { useAuth } from "../../hooks/auth";
+import blankAvatar from "../../assets/blank_avatar.svg"
 
 export function Preview (){
     const {user} = useAuth();
