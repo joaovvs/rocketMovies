@@ -20,7 +20,7 @@ export const Container = styled.div`
             display: flex;
             justify-content: space-between;
 
-            margin: 5rem 0;
+            margin: 5rem 0 4rem;
 
             h1{
                 color: ${({theme})=> theme.COLORS.WHITE};
@@ -39,7 +39,7 @@ export const CardList = styled.section`
 
     flex-direction: column;
     display: flex;
-    height: 80%;
+    height: 78%;
     overflow-y: auto;
 
 

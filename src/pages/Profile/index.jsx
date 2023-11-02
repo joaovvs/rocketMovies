@@ -36,9 +36,18 @@ export function Profile(){
             old_password: passwordOld,
         };
 
-        const userUpdate = Object.assign(user,updated)
-        await updateProfile({user: userUpdate, avatarFile});
-        navigate(-1);
+        try {
+            const userUpdate = Object.assign(user,updated);
+            await updateProfile({user: userUpdate, avatarFile});
+        } catch (error) {
+            if(error.response){
+                console.log("entrou aqui!");
+                alert(error.response.data.message);
+            }else {
+                alert("Não foi possível alterar os dados do usuário!");
+            }
+        }
+        
     }
 
     function handleChangeAvatar(event){

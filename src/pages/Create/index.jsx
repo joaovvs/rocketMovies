@@ -65,6 +65,7 @@ export function Create(){
         try {
             api.put(`/notes/`, note);
             alert("Anotação atualizada com sucesso!");
+            navigate("/");
         } catch (error) {
             if(error.response){
                 alert(error.response.data.message);

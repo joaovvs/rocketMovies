@@ -18,12 +18,15 @@ export function Preview (){
 
     const  navigate = useNavigate();
 
-    const [movieNote, setMovieNote] = useState([{
-        id: "",
-        title:"",
-        rating:"",
-        description:"",
-        tags:[]}]);
+    const [movieNote, setMovieNote] = useState(
+        {
+                id: "",
+                title:"",
+                rating:"",
+                description:"",
+                tags:[],
+                author: {name:"",avatar:""}
+        });
 
     function handleEdit(){
         navigate(`/new/${params.id}`)
@@ -41,12 +44,22 @@ export function Preview (){
 
     useEffect(()=>{
         async function fetchMovieNotes(){
-            console.log("chegou aqui!")
-            if(params.id){
-                const result = await api.get(`/notes/${params.id}`);
-                console.log(result.data);
-                setMovieNote(result.data)
-            }
+                console.log(movieNote);
+                try {
+                    console.log("chegou aqui!")
+                    const result = await api.get(`/notes/${params.id}`);
+                    console.log(result.data);
+                    setMovieNote(result.data)
+                } catch (error) {
+                    if(error.response){
+                        alert(error.response.data.message);
+                        navigate("/");
+                    }else{
+                        alert( "Nota não encontrada2!");
+                        navigate("/");
+                    }
+                    
+                }
         }
         fetchMovieNotes();
     },[])
@@ -69,8 +82,8 @@ export function Preview (){
                             <Rating rating={movieNote.rating}/>
                         </div>
                         <div className="note-creation-infos">
-                            <img src={avatarUrl} alt={`Foto de perfil de ${user.name}`} />
-                            <p>Por {user.name}</p>
+                            <img src={movieNote.author.avatar ? `${api.defaults.baseURL}/files/${movieNote.author.avatar}` : blankAvatar} alt={`Foto de perfil de ${movieNote.author.name}`} />
+                            <p>Por {movieNote.author.name}</p>
                             <FiClock/>
                             <p>{handleDateTimeBrasilia(movieNote.updated_at)}</p>
                             <ButtonText 

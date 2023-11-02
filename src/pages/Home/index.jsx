@@ -42,10 +42,6 @@ export function Home(){
         fetchMovieNotes();
     },[search]);
 
-    useEffect(()=>{
-        console.log("changed");
-    },[movieNotes]);
-
 
 
     return(

@@ -3,7 +3,6 @@ import { Container } from "./styles";
 import { Rating } from "../Rating";
 import { Tag } from "../Tag";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
 
 
 export function MovieCard({title,id, rating, description, tags,...rest}){
@@ -13,8 +12,8 @@ export function MovieCard({title,id, rating, description, tags,...rest}){
         <Link to={`preview/${id}`}>
 
         <Container {...rest}>
-            <h2>{title}</h2>
-            <div className="stars">
+            <div>
+                <h2>{title}</h2>
                 <Rating rating={rating}/>
             </div>
             <p>{description}

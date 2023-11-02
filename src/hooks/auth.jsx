@@ -41,6 +41,7 @@ function AuthProvider({children}){
 
     async function updateProfile({ user, avatarFile }){
         try {
+            await api.put("/users", user);
 
             if(avatarFile){
                 const fileUploadForm = new FormData();
@@ -49,8 +50,6 @@ function AuthProvider({children}){
                 const response=await api.patch("/users/avatar", fileUploadForm);
                 user.avatar = response.data.avatar;
             }
-            console.log({user});
-            await api.put("/users", user);
             
             localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
 
@@ -64,6 +63,7 @@ function AuthProvider({children}){
             }else{
                 alert( "Não foi possível autenticar");
             }
+            window.location.reload();
         }
     }
 
