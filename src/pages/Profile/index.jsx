@@ -97,7 +97,7 @@ export function Profile(){
                 <Input icon={FiMail} 
                     id="email"
                     autoComplete="false"
-                    value={user.email}
+                    defaultValue={user.email}
                     onChange={e => setEmail(e.target.value)}
                 />
                 <Input icon={FiLock}
