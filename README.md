@@ -23,10 +23,10 @@ RocketMovies é uma aplicação desenvolvida em React onde o usuário poderá ca
 - Styled Components
 
 #### Back-end
--NodeJs
--JWT
--Express
--SQLite
+- NodeJs
+- JWT
+- Express
+- SQLite
 
 #### Deploy da aplicação
 
