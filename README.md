@@ -2,6 +2,11 @@
 
 RocketMovies é uma aplicação desenvolvida em React onde o usuário poderá catalogar os filmes assistidos e definir uma nota de 0 a 5.
 
+### Preview
+
+![App Preview](/src/assets/preview.png)
+
+
 ### Funcionalidades
 
 1. Cadastro de usuário
@@ -23,10 +28,10 @@ RocketMovies é uma aplicação desenvolvida em React onde o usuário poderá ca
 - Styled Components
 
 #### Back-end
--NodeJs
--JWT
--Express
--SQLite
+- NodeJs
+- JWT
+- Express
+- SQLite
 
 #### Deploy da aplicação
 
