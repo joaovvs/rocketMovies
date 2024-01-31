@@ -41,7 +41,6 @@ export function Profile(){
             await updateProfile({user: userUpdate, avatarFile});
         } catch (error) {
             if(error.response){
-                console.log("entrou aqui!");
                 alert(error.response.data.message);
             }else {
                 alert("Não foi possível alterar os dados do usuário!");

@@ -51,10 +51,8 @@ export function Create(){
 
     function handleSaveMovieNote(){
         if (params.id){
-            console.log("Precisa atualizar a nota");
             updateMovieNote();
         }else{
-            console.log("Precisa criar uma nova nota");
             createNewMovieNote();
         }
     
